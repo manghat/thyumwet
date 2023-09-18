@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import ThemeToggle from "./theme-toggle";
+// import ThemeToggle from "./theme-toggle";
+import { ModeToggle } from "./theme-toggle";
 import Link from "next/link";
 import MenuElements from "../../lib/menu-elements";
 
@@ -38,7 +39,7 @@ export default function Menu() {
           <MenuElements className="text-sm font-semibold leading-6 box-shadow-lg" />
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <ThemeToggle />
+          <ModeToggle />
         </div>
       </nav>
       <Dialog
@@ -75,7 +76,8 @@ export default function Menu() {
                 <MenuElements className="-mx-3 flex flex-col rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:outline-1" />
               </div>
               <div className="py-6">
-                <ThemeToggle />
+                {/* <ThemeToggle /> */}
+                <ModeToggle />
               </div>
             </div>
           </div>
