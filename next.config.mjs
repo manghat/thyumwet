@@ -8,9 +8,10 @@ const nextConfig = {
   images: {
     domains: ['images.ctfassets.net'],
     loader: 'custom',
-    loaderFile: './app/components/utils/contentful-loader.tsx',
+    loaderFile: './lib/contentful-loader.tsx',
     path: 'https://',
   },
 }
 
 export default withPlaiceholder(nextConfig);
+
