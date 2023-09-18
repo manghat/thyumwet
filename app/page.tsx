@@ -1,3 +1,4 @@
+import ThemeToggle from "@/components/ui/my-theme-toggle";
 import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/components/ui/theme-toggle";
 import MenuElements from "@/lib/menu-elements";
@@ -27,9 +28,10 @@ export default function Home() {
             {/* <p className="m-6 ">Dive in:</p> */}
             <MenuElements className="p-5" />
           </div>
-          <div className="lg:hidden opacity-60">
+          {/* <div className="lg:hidden opacity-60">
             <ModeToggle />
-          </div>
+          </div> */}
+          <ThemeToggle className="test lg:hidden opacity-60" />
           {/* <ModeToggle className="test lg:hidden opacity-60" /> */}
           <h2 className="absolute bottom-3 text-xs md:text-normal left-0 opacity-60 right-0 m-auto w-5/6 md:w-1/2  scroll-m-20 border-b p-5 pt-10 text-md  tracking-tight transition-colors first:mt-0">
             by Ashwin Manghat

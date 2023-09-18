@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Menu from "@/components/ui/menu";
+import { Particles } from "@/components/particles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           themes={["light", "dark"]}
         >
           <Menu />
+          <Particles className="absolute inset-0 -z-10" />
           {children}
         </ThemeProvider>
       </body>
