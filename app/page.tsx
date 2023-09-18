@@ -1,6 +1,5 @@
 import ThemeToggle from "@/components/ui/my-theme-toggle";
 import { Separator } from "@/components/ui/separator";
-import { ModeToggle } from "@/components/ui/theme-toggle";
 import MenuElements from "@/lib/menu-elements";
 
 export default function Home() {

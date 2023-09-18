@@ -31,7 +31,7 @@ const ThemeToggle = ({ className }: any) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`w-6 h-6 fixed transition-all duration-300 opacity-0 dark:opacity-100 ease-in-out`}
+          className={`w-6 h-6 fixed transition-all duration-300 opacity-0 dark:opacity-100 dark:duration-300 ease-in-out dark:-rotate-360`}
         >
           <path
             strokeLinecap="round"

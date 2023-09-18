@@ -14,6 +14,7 @@ export default function MenuElements({
   setMobileMenuOpen,
 }: Props) {
   const pathname = usePathname();
+  // console.log("pathname", pathname);
   const navigation = [
     { name: "Photo Series", href: "/photo-series" },
     { name: "Photography", href: "/photography" },
@@ -24,6 +25,7 @@ export default function MenuElements({
     <div className={className}>
       {navigation.map((item) => (
         <Link
+          onClick={() => (mobileMenuOpen ? setMobileMenuOpen(false) : "")}
           href={item.href}
           key={item.name}
           className={` ${

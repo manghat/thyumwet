@@ -1,3 +1,4 @@
+import getBase64ImageUrl from "@/lib/generate-blur-placeholder";
 import { client } from "./contentful-client";
 import GetImageDetils from "./get-image-details";
 import { ImageProps } from "./types";
@@ -32,4 +33,23 @@ export async function getDataPhoto() {
     i++;
   }
   return GetImageDetils(reducedResults);
+}
+
+export async function getMyPhoto() {
+  const result = await client.getAsset("2Lk8gJFapmsaug9WrFV7jW");
+  if (!result) {
+    throw new Error("Failed to fetch data");
+  }
+  let reducedResults = {
+    id: 0,
+    idc: result.sys.id,
+    height: result.fields.file.details.image.height,
+    src: result.fields.file.url,
+    width: result.fields.file.details.image.width,
+    blurDataURL: "",
+    alt: "Ashwin Mangaht",
+  };
+  reducedResults.blurDataURL = await getBase64ImageUrl(result.fields.file.url);
+
+  return reducedResults;
 }

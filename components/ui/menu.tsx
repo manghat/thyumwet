@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-// import ThemeToggle from "./theme-toggle";
-import { ModeToggle } from "./theme-toggle";
 import Link from "next/link";
 import MenuElements from "../../lib/menu-elements";
 import ThemeToggle from "./my-theme-toggle";
