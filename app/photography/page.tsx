@@ -16,7 +16,7 @@ export default async function Page({}: Props) {
       />
       <section className="grid md:grid-cols-gallery auto-rows-[5px] py-24 md:mx-1">
         {data.props.images.map((image: ImageProps, index: number) => (
-          <ImageContainer key={index} image={image} index={0} href={""} />
+          <ImageContainer key={index} image={image} index={index} href={""} />
         ))}
       </section>
     </div>
