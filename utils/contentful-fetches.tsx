@@ -3,7 +3,7 @@ import { client } from "./contentful-client";
 import GetImageDetils from "./get-image-details";
 import { ImageProps } from "./types";
 
-export async function getDataPhoto() {
+export async function getDataPhotographs() {
   // "use server";
   const results = await client.getEntries({
     content_type: "photograph",

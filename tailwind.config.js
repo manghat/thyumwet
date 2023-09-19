@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        'gallery': 'repeat(auto-fit, minmax(500px, 1fr))'
+    },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
