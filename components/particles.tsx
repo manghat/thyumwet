@@ -32,7 +32,7 @@ export const Particles: React.FC<ParticlesProps> = ({
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
 
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
   const color_dark = "rgba(223, 230, 233";
   const color_light = "rgba(45, 52, 54";
 
@@ -58,11 +58,12 @@ export const Particles: React.FC<ParticlesProps> = ({
   }, [refresh]);
 
   useEffect(() => {
-    let color = theme === "dark" ? color_dark : color_light;
+    let color = resolvedTheme === "dark" ? color_dark : color_light;
+    console.log("resolvedTheme", resolvedTheme);
     circles.current.forEach((circle: any) => {
       circle.color_t = color;
     });
-  }, [theme]);
+  }, [theme, resolvedTheme]);
 
   const initCanvas = () => {
     resizeCanvas();
@@ -121,7 +122,7 @@ export const Particles: React.FC<ParticlesProps> = ({
     const dx = (Math.random() - 0.5) * 0.2;
     const dy = (Math.random() - 0.5) * 0.2;
     const magnetism = 0.1 + Math.random() * 4;
-    let color_t = theme === "dark" ? color_dark : color_light;
+    let color_t = resolvedTheme === "dark" ? color_dark : color_light;
     return {
       x,
       y,

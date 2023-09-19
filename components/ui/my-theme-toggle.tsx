@@ -5,7 +5,7 @@ import { Button } from "./button";
 import { useEffect, useState } from "react";
 
 const ThemeToggle = ({ className }: any) => {
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const ThemeToggle = ({ className }: any) => {
         size={"icon"}
         className={`bg-background ${className} `}
         onClick={() => {
-          theme === "dark" ? setTheme("light") : setTheme("dark");
+          resolvedTheme === "dark" ? setTheme("light") : setTheme("dark");
         }}
       >
         <svg
