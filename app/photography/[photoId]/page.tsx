@@ -7,6 +7,7 @@ import {
   ArrowLongRightIcon,
   PhotoIcon,
 } from "@heroicons/react/24/outline";
+import { Suspense } from "react";
 
 type Props = { photoId: string; href: string };
 
@@ -50,6 +51,7 @@ const Page = async ({ params }: { params: Props }) => {
       <h1 className="mx-auto pb-5 scroll-m-20 text-xl font-semibold tracking-tight">
         {data.props.images[photoId].alt}
       </h1>
+
       <Image
         style={{
           transform: "translate3d(0, 0, 0)",
@@ -66,15 +68,11 @@ const Page = async ({ params }: { params: Props }) => {
         // onLoadingComplete={(data.props.images[photoId]) => data.props.images[photoId].classList.remove("opacity-0")}
         loading={"eager"}
         sizes="100vh"
-        // sizes="(max-width: 640px) 100vw,
-        //     (max-width: 1280px) 100vw,
-        //     (max-width: 1536px) 100vw,
-        //     100vw"
         placeholder="blur"
         blurDataURL={data.props.images[photoId].blurDataURL}
       />
 
-      <h2 className=" mx-auto text-xs text-center md:text-normal opacity-60 mx-auto w-5/6 md:w-1/2  scroll-m-20 pt-10 text-md  tracking-tight transition-colors first:mt-0">
+      <h2 className=" text-xs text-center md:text-normal opacity-60 mx-auto w-5/6 md:w-1/2  scroll-m-20 pt-10 text-md  tracking-tight transition-colors first:mt-0">
         by Ashwin Manghat
       </h2>
       <div className="flex justify-center">

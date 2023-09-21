@@ -32,6 +32,7 @@ export async function Header({
                 height={100}
                 alt="Bordered avatar"
                 placeholder="blur"
+                sizes="100px"
                 blurDataURL={image.blurDataURL}
               />
             </p>

@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+import type { ReactNode, FC } from "react";
 import Menu from "@/components/ui/menu";
 import { Particles } from "@/components/particles";
 import { Providers } from "@/lib/providers";
@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   description: "A website by Ashwin Manghat",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+interface RootLayoutProps {
+  children: ReactNode;
+  modal: ReactNode;
+}
+const RootLayout: FC<RootLayoutProps> = ({ children, modal }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
@@ -27,6 +27,9 @@ export default function RootLayout({
           {children}
         </Providers>
       </body>
+      {modal}
     </html>
   );
-}
+};
+
+export default RootLayout;

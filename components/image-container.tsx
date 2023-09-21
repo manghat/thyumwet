@@ -26,7 +26,7 @@ export default function ImageContainer({ image, index, href }: Props) {
       >
         <Link
           //   href={`${href}?photoId=${index}`}
-          href={`/photography/${index}`}
+          href={`/photography/${image.id}`}
           // replace
           scroll={false}
           className="grid place-content-center"

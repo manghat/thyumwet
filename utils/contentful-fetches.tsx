@@ -35,8 +35,8 @@ export async function getDataPhotographs() {
   return GetImageDetils(reducedResults);
 }
 
-export async function getMyPhoto() {
-  const result = await client.getAsset("2Lk8gJFapmsaug9WrFV7jW");
+export async function getAPhoto(id: string) {
+  const result = await client.getAsset(id);
   if (!result) {
     throw new Error("Failed to fetch data");
   }
@@ -52,4 +52,21 @@ export async function getMyPhoto() {
   reducedResults.blurDataURL = await getBase64ImageUrl(result.fields.file.url);
 
   return reducedResults;
+}
+
+export async function getAnAsset(entity_id: string) {
+  const result = await client.getEntry(entity_id);
+  if (!result) {
+    throw new Error("Failed to fetch data");
+  }
+  let reducedResults = {
+    id: 0,
+    idc: result.sys.id,
+    height: result.fields.photo.file.details.image.height,
+    src: result.fields.photo.file.url,
+    width: result.fields.photo.file.details.image.width,
+    blurDataURL: "",
+    alt: result.fields.photoTitle,
+  };
+  reducedResults.blurDataURL = await getBase64ImageUrl(result.fields.file.url);
 }

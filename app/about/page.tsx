@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
 import { Header } from "@/components/ui/header-on-page";
 import Link from "next/link";
-import { getMyPhoto } from "@/utils/contentful-fetches";
+import { getAPhoto } from "@/utils/contentful-fetches";
 
 type Props = {};
 
 async function Page({}: Props) {
-  const data = await getMyPhoto();
+  const data = await getAPhoto("2Lk8gJFapmsaug9WrFV7jW");
   // About page should have my image and a short description of me with some links to my socials
   return (
     <div>
