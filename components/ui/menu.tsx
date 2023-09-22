@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export default function Menu() {
         </div>
 
         <div className="hidden lg:flex lg:gap-x-12 p-2">
-          <MenuElements className="text-sm font-semibold leading-6 box-shadow-lg bg-blend-multiply" />
+          <MenuElements className="text-sm font-semibold tracking-wide leading-6 box-shadow-lg bg-blend-multiply" />
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -75,9 +75,13 @@ export default function Menu() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <MenuElements className="-mx-3 flex flex-col rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:outline-1" />
+                <MenuElements
+                  className="-mx-3 flex flex-col rounded-lg px-3 py-2 text-base tracking-wide leading-7  hover:outline-1"
+                  mobileMenuOpen={mobileMenuOpen}
+                  setMobileMenuOpen={setMobileMenuOpen}
+                />
               </div>
-              <div className="py-6">
+              <div className="py-6 flex  justify-center">
                 <ThemeToggle />
                 {/* <ModeToggle /> */}
               </div>

@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -18,22 +19,23 @@ export default function MenuElements({
   const navigation = [
     { name: "Photo Series", href: "/photo-series" },
     { name: "Photography", href: "/photography" },
-    // { name: "Blog", href: "#" },
+    { name: "Projects", href: "#" },
     { name: "About", href: "/about" },
   ];
   return (
     <div className={className}>
       {navigation.map((item) => (
-        <Link
-          onClick={() => (mobileMenuOpen ? setMobileMenuOpen(false) : "")}
-          href={item.href}
-          key={item.name}
-          className={` ${
-            pathname === item.href ? "underline font-bold" : ""
-          } leading-8 px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline ${className}`}
-        >
-          {item.name}
-        </Link>
+        <Button asChild key={item.name} variant="link">
+          <Link
+            onClick={() => (mobileMenuOpen ? setMobileMenuOpen(false) : "")}
+            href={item.href}
+            // className={` ${
+            //   pathname === item.href ? "underline font-bold" : ""
+            // } leading-8 px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline ${className}`}
+          >
+            {item.name}
+          </Link>
+        </Button>
       ))}
     </div>
   );
