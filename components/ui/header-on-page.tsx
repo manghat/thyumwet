@@ -40,11 +40,12 @@ export async function Header({
           )}
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight py-4 border-b mb-5 sm:text-6xl">
-              <AnimatedText text={title} once />
-              {/* {title} */}
+              {/* <AnimatedText text={title} once /> */}
+              {title}
             </h1>
             <p className="text-xl py-2 text-muted-foreground leading-10">
-              <AnimatedText
+              {subtitle}
+              {/* <AnimatedText
                 once
                 text={subtitle}
                 animation={{
@@ -60,11 +61,12 @@ export async function Header({
                     },
                   },
                 }}
-              />
+              /> */}
             </p>
             {subtitle2 && (
               <p className="text-xl py-2 text-muted-foreground leading-10">
-                <AnimatedText
+                {subtitle2}
+                {/* <AnimatedText
                   once
                   text={subtitle2}
                   animation={{
@@ -80,7 +82,7 @@ export async function Header({
                       },
                     },
                   }}
-                />
+                /> */}
               </p>
             )}
           </div>

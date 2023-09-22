@@ -24,7 +24,7 @@ export default function MenuElements({
     { name: "About", href: "/about" },
   ];
   return (
-    <ul className={`${className} flex`}>
+    <ul className={`${className} flex justify-center`}>
       {navigation.map((item) => (
         // <Button
         //   asChild
