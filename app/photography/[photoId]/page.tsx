@@ -73,9 +73,9 @@ const Page = async ({ params }: { params: Props }) => {
         blurDataURL={data.blurDataURL}
       />
 
-      <h2 className=" text-xs text-center md:text-normal opacity-60 mx-auto w-5/6 md:w-1/2  scroll-m-20 pt-10 text-md  tracking-tight transition-colors first:mt-0">
+      {/* <h2 className=" text-xs text-center md:text-normal opacity-60 mx-auto w-5/6 md:w-1/2  scroll-m-20 pt-10 text-md  tracking-tight transition-colors first:mt-0">
         by Ashwin Manghat
-      </h2>
+      </h2> */}
       <div className="flex justify-center">
         <Button className="" variant="link" asChild>
           <Link
