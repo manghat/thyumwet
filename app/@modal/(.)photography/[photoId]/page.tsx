@@ -6,12 +6,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 type Props = { photoId: string };
-export default async function Page({
-  params,
-}: {
-  params: Props;
-  images: ImageProps[];
-}) {
+export default async function Page({ params }: { params: Props }) {
   const { photoId } = params;
   const data = await getDataPhotographs();
 
