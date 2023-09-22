@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Header } from "@/components/ui/header-on-page";
 import Link from "next/link";
 import { getAPhoto } from "@/utils/contentful-fetches";
+import AnimationWrapper from "@/components/ui/animation-wrapper";
 
 type Props = {};
 
@@ -9,15 +10,14 @@ async function Page({}: Props) {
   const data = await getAPhoto("2Lk8gJFapmsaug9WrFV7jW");
   // About page should have my image and a short description of me with some links to my socials
   return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Header
-          title={"👋 Hi, I am Ashwin"}
-          subtitle={"I tinker with code and take photos."}
-          subtitle2={"Otherwise busy building products for learners."}
-          image={data}
-        />
-      </Suspense>
+    <AnimationWrapper>
+      <Header
+        title={"👋 Hi, I am Ashwin"}
+        subtitle={"I tinker with code and take photos."}
+        subtitle2={"Otherwise busy building products for learners."}
+        image={data}
+      />
+
       <div className="flex justify-center p-10">
         <Link
           href="mailto:ashwinmanghat@gmail.com"
@@ -88,7 +88,7 @@ async function Page({}: Props) {
       <p className="text-muted-foreground text-center p-10">
         This page is 🖐️ made with Nextjs 13, Tailwind, Shadcn
       </p>
-    </div>
+    </AnimationWrapper>
   );
 }
 

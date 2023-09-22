@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ImageProps } from "@/utils/types";
+import { AnimatedText } from "./animated-text";
 type Props = {
   children?: string | JSX.Element;
   title: string;
@@ -39,15 +40,49 @@ export async function Header({
           )}
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight py-4 border-b mb-5 sm:text-6xl">
-              {/* <Blur /> */}
-              {title}
+              <AnimatedText text={title} once />
+              {/* {title} */}
             </h1>
             <p className="text-xl py-2 text-muted-foreground leading-10">
-              {subtitle}
+              <AnimatedText
+                once
+                text={subtitle}
+                animation={{
+                  hidden: {
+                    opacity: 0,
+                    // y: 20,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.2,
+                    },
+                  },
+                }}
+              />
             </p>
-            <p className="text-xl py-2 text-muted-foreground leading-10">
-              {subtitle2}
-            </p>
+            {subtitle2 && (
+              <p className="text-xl py-2 text-muted-foreground leading-10">
+                <AnimatedText
+                  once
+                  text={subtitle2}
+                  animation={{
+                    hidden: {
+                      opacity: 0,
+                      // y: 20,
+                    },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        duration: 0.5,
+                      },
+                    },
+                  }}
+                />
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -1,14 +1,21 @@
+import { AnimatedText } from "@/components/ui/animated-text";
+import AnimationWrapper from "@/components/ui/animation-wrapper";
 import ThemeToggle from "@/components/ui/my-theme-toggle";
 import { Separator } from "@/components/ui/separator";
 import MenuElements from "@/lib/menu-elements";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <>
+    <AnimationWrapper>
       <div className="flex relative isolate items-center justify-center h-[calc(100vh-160px)] align-middle px-5">
         <div className="text-center">
           <h1 className="text-5xl font-bold tracking-tight  sm:text-6xl">
-            Umwelt
+            <AnimatedText
+              text="Umwelt"
+              once
+              className="text-5xl font-bold tracking-tight  sm:text-6xl"
+            />
           </h1>
           <p className="mt-6 text-sm  md:text-md leading-6 md:leading-8 text-muted-foreground">
             \/ˈʊmvɛlt/ noun (in ethology)
@@ -34,6 +41,6 @@ export default function Home() {
           {/* <ModeToggle className="test lg:hidden opacity-60" /> */}
         </div>
       </div>
-    </>
+    </AnimationWrapper>
   );
 }

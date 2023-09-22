@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 type Props = {
   className?: string;
@@ -23,20 +24,34 @@ export default function MenuElements({
     { name: "About", href: "/about" },
   ];
   return (
-    <div className={className}>
+    <ul className={`${className} flex`}>
       {navigation.map((item) => (
-        <Button asChild key={item.name} variant="link">
+        // <Button
+        //   asChild
+        //   key={item.name}
+        //   variant="link"
+        //   className="hover:scale-125 hover:font-bold"
+        // >
+        <li key={item.name}>
           <Link
             onClick={() => (mobileMenuOpen ? setMobileMenuOpen(false) : "")}
             href={item.href}
-            // className={` ${
-            //   pathname === item.href ? "underline font-bold" : ""
-            // } leading-8 px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline ${className}`}
+            // className="relative px-4"
+            // key={item.name}
+            className={` ${
+              pathname === item.href ? "underline font-bold" : ""
+            } leading-8 px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline ${className}`}
           >
+            {pathname === item.href && (
+              <motion.span
+                layoutId="underline"
+                className="absolute left-0 bottom-0 top-full block z-90 h-[1px] w-full bg-black dark:bg-white "
+              ></motion.span>
+            )}
             {item.name}
           </Link>
-        </Button>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

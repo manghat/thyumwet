@@ -4,13 +4,14 @@ import Image from "next/image";
 import { Separator } from "@components/ui/separator";
 import Link from "next/link";
 import { ImageSeriesProps } from "@/utils/types";
+import AnimationWrapper from "@/components/ui/animation-wrapper";
 
 type Props = {};
 
 const Page = async (props: Props) => {
   const data = await getPhotoSeries();
   return (
-    <>
+    <AnimationWrapper>
       <Header
         title="Photo Series"
         subtitle="Photographs in meaningful grouping."
@@ -74,7 +75,7 @@ const Page = async (props: Props) => {
           </>
         ))}
       </div>
-    </>
+    </AnimationWrapper>
   );
 };
 
