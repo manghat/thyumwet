@@ -1,5 +1,3 @@
-import "server-only";
-
 import getBase64ImageUrl from "@/lib/generate-blur-placeholder";
 import { client } from "./contentful-client";
 import GetImageDetils from "./get-image-details";
@@ -7,13 +5,10 @@ import { ImageProps } from "./types";
 
 export async function getDataPhotographs() {
   // "use server";
-  const results = await client.getEntries(
-    {
-      content_type: "photograph",
-      order: "-sys.updatedAt",
-    },
-    { next: { revalidate: 3600 } }
-  );
+  const results = await client.getEntries({
+    content_type: "photograph",
+    order: "-sys.updatedAt",
+  });
   if (!results.items) {
     throw new Error("Failed to fetch data");
   }
@@ -41,7 +36,7 @@ export async function getDataPhotographs() {
 }
 
 export async function getAPhoto(id: string) {
-  const result = await client.getAsset(id, { next: { revalidate: 360000 } });
+  const result = await client.getAsset(id);
   if (!result) {
     throw new Error("Failed to fetch data");
   }
@@ -60,9 +55,7 @@ export async function getAPhoto(id: string) {
 }
 
 export async function getAnAsset(entity_id: string) {
-  const result = await client.getEntry(entity_id, {
-    next: { revalidate: 3600 },
-  });
+  const result = await client.getEntry(entity_id);
   if (!result) {
     throw new Error("Failed to fetch data");
   }
