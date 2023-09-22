@@ -14,7 +14,7 @@ export default function MenuElements({
   setMobileMenuOpen,
 }: Props) {
   const pathname = usePathname();
-  // console.log("pathname", pathname);
+
   const navigation = [
     { name: "Photo Series", href: "/photo-series" },
     { name: "Photography", href: "/photography" },
@@ -30,7 +30,7 @@ export default function MenuElements({
           key={item.name}
           className={` ${
             pathname === item.href ? "underline font-bold" : ""
-          } leading-6 px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline ${className}`}
+          } leading-8 px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline ${className}`}
         >
           {item.name}
         </Link>

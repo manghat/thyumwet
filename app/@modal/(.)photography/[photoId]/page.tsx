@@ -1,16 +1,15 @@
 import Modal from "@/components/ui/Modal/modal";
-// import Modal2 from "@/components/ui/modal";
-import { getDataPhotographs } from "@/utils/contentful-fetches";
-import { ImageProps } from "@/utils/types";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { getAnAsset } from "@/utils/contentful-fetches";
+// import { ImageProps } from "@/utils/types";
+// import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 type Props = { photoId: string };
 export default async function Page({ params }: { params: Props }) {
   const { photoId } = params;
-  const data = await getDataPhotographs();
+  const data = await getAnAsset(photoId);
 
-  const currentImage = data.props.images[photoId];
+  const currentImage = data;
 
   return (
     <Modal>

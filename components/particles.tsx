@@ -59,7 +59,7 @@ export const Particles: React.FC<ParticlesProps> = ({
 
   useEffect(() => {
     let color = resolvedTheme === "dark" ? color_dark : color_light;
-    console.log("resolvedTheme", resolvedTheme);
+    // console.log("resolvedTheme", resolvedTheme);
     circles.current.forEach((circle: any) => {
       circle.color_t = color;
     });

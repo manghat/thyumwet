@@ -1,6 +1,6 @@
 export interface ImageProps {
   id: number;
-  idc?: string;
+  idc: string;
   height: number;
   width: number;
   blurDataURL?: string | undefined;

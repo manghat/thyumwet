@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -9,11 +9,11 @@ import ThemeToggle from "./my-theme-toggle";
 
 export default function Menu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // console.log("searchParams", params, searchParams);
+
   return (
-    <header className={`inset-x-0 top-0 z-50 backdrop-blur-md `}>
+    <header className={`sticky inset-x-0 top-0 z-10 backdrop-blur-md `}>
       <nav
-        className="flex items-center justify-between p-2.5 lg:px-8"
+        className="top-0 flex items-center justify-between p-2.5 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
@@ -34,9 +34,11 @@ export default function Menu() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
+
         <div className="hidden lg:flex lg:gap-x-12 p-2">
-          <MenuElements className="text-sm font-semibold leading-6 box-shadow-lg" />
+          <MenuElements className="text-sm font-semibold leading-6 box-shadow-lg bg-blend-multiply" />
         </div>
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {/* <ModeToggle /> */}
           <ThemeToggle />

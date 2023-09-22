@@ -5,7 +5,7 @@ import MenuElements from "@/lib/menu-elements";
 export default function Home() {
   return (
     <>
-      <div className="flex relative isolate items-center justify-center h-[calc(100vh-84px)] align-middle px-5">
+      <div className="flex relative isolate items-center justify-center h-[calc(100vh-160px)] align-middle px-5">
         <div className="text-center">
           <h1 className="text-5xl font-bold tracking-tight  sm:text-6xl">
             Umwelt
@@ -32,9 +32,6 @@ export default function Home() {
           </div> */}
           <ThemeToggle className="test lg:hidden opacity-60" />
           {/* <ModeToggle className="test lg:hidden opacity-60" /> */}
-          <h2 className="absolute bottom-3 text-xs md:text-normal left-0 opacity-60 right-0 m-auto w-5/6 md:w-1/2  scroll-m-20 p-5 pt-10 text-md  tracking-tight transition-colors first:mt-0">
-            by Ashwin Manghat
-          </h2>
         </div>
       </div>
     </>
