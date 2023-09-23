@@ -49,7 +49,7 @@ const Page = (props: Props) => {
             <CardFooter>
               <CardDescription className="grow">
                 {item.builtWith.split(", ").map((item, index) => (
-                  <Badge key={index} variant="secondary" className="pr-1">
+                  <Badge key={index} variant="outline" className="p-2">
                     {item.trim()}
                   </Badge>
                 ))}
