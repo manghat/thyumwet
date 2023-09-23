@@ -17,17 +17,18 @@ async function Page({ params }: Props) {
       <section className="py-24 md:mx-1 justify-self-center ">
         {data.images.props.images.map((image: any, index: number) => (
           <div
-            className={`flex items-center justify-between md:px-24 pt-24 py-1 text-2xl tracking-tight transition-colors text-muted-foreground ${
-              index % 2 ? "md:flex-row-reverse" : ""
+            className={`flex flex-col items-center justify-between md:px-24 pt-24 py-1 text-2xl tracking-tight transition-colors text-muted-foreground ${
+              // index % 2 ? "md:flex-row-reverse" : ""
+              ""
             }`}
             key={image.id}
           >
             {/* <h2 className="mx-auto mb-5">{image.alt}</h2> */}
-            <div className="md:hidden text-center mx-2">
+            {/* <div className="md:hidden text-center mx-2">
               <p className="text-sm md:text-xl md:text-muted-foreground group-hover:opacity-100 line-clamp-2">
                 {image.alt} <br /> {image.date}
               </p>
-            </div>
+            </div> */}
             <Image
               src={image.src}
               alt={image.alt}
