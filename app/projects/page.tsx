@@ -36,7 +36,7 @@ const Page = (props: Props) => {
   return (
     <AnimationWrapper>
       <Header
-        title="Projects / areas of interest"
+        title="Projects in areas of interest"
         subtitle="Code projects which will most likely be half baked :D"
       />
       {/* <div className="grid md:grid-cols-3 gap-3 container py-24">
