@@ -4,6 +4,13 @@ import Link from "next/link";
 import { getAPhoto } from "@/utils/contentful-fetches";
 import AnimationWrapper from "@/components/ui/animation-wrapper";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ThyUmvelt | About",
+  description: "About me and where to find me.",
+};
+
 type Props = {};
 
 async function Page({}: Props) {

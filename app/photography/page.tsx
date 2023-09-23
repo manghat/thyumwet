@@ -3,9 +3,16 @@ import AnimationWrapper from "@/components/ui/animation-wrapper";
 import { Header } from "@/components/ui/header-on-page";
 import { getDataPhotographs } from "@/utils/contentful-fetches";
 import { ImageProps } from "@/utils/types";
+import { Metadata } from "next";
 import Image from "next/image";
 
 type Props = {};
+
+export const metadata: Metadata = {
+  title: "ThyUmvelt | Photography",
+  description:
+    "A moment in time and space, captured and rendered for its perceived beauty.",
+};
 
 export default async function Page({}: Props) {
   const data = await getDataPhotographs();

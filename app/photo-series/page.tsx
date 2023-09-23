@@ -5,8 +5,14 @@ import { Separator } from "@components/ui/separator";
 import Link from "next/link";
 import { ImageSeriesProps } from "@/utils/types";
 import AnimationWrapper from "@/components/ui/animation-wrapper";
+import { Metadata } from "next";
 
 type Props = {};
+
+export const metadata: Metadata = {
+  title: "ThyUmvelt | Photo Series",
+  description: "Photographs in meaningful grouping.",
+};
 
 const Page = async (props: Props) => {
   const data = await getPhotoSeries();

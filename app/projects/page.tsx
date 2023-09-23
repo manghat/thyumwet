@@ -8,12 +8,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import AnimationWrapper from "@/components/ui/animation-wrapper";
 import { CardShadow } from "@/components/ui/card-shadow";
 import Link from "next/link";
+import { Metadata } from "next";
 
 type Props = {};
+
+export const metadata: Metadata = {
+  title: "ThyUmvelt | Project",
+  description: "The prohects I have been working on",
+};
 
 const projects = [
   {
