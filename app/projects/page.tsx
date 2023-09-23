@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import AnimationWrapper from "@/components/ui/animation-wrapper";
 
 type Props = {};
 
@@ -31,7 +32,7 @@ const projects = [
 
 const Page = (props: Props) => {
   return (
-    <>
+    <AnimationWrapper>
       <Header
         title="Projects / areas of interest"
         subtitle="Code projects which will most likely be half baked :D"
@@ -67,7 +68,7 @@ const Page = (props: Props) => {
           </Card>
         ))}
       </div>
-    </>
+    </AnimationWrapper>
   );
 };
 
