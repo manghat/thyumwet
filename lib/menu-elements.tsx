@@ -38,9 +38,9 @@ export default function MenuElements({
             href={item.href}
             // className="relative px-4"
             // key={item.name}
-            className={` ${
-              pathname === item.href ? "underline font-bold" : ""
-            } leading-8 px-2 md:px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline break-keep ${className}`}
+            className={`${className} ${
+              pathname === item.href ? "font-bold " : "no underline"
+            } underline leading-8 px-2 md:px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline break-keep`}
           >
             {pathname === item.href && (
               <motion.span

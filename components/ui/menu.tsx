@@ -36,7 +36,7 @@ export default function Menu() {
         </div>
 
         <div className="hidden lg:flex lg:gap-x-12 p-2">
-          <MenuElements className="text-sm font-semibold tracking-wide leading-6 box-shadow-lg bg-blend-multiply" />
+          <MenuElements className="text-sm underline-offset-8 tracking-wide mx-5 leading-6 box-shadow-lg bg-blend-multiply" />
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
