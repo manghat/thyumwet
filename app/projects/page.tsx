@@ -36,7 +36,7 @@ const Page = (props: Props) => {
         title="Projects / areas of interest"
         subtitle="Code projects which will most likely be half baked :D"
       />
-      <div className="grid grid-cols-3 gap-3 container py-24">
+      <div className="grid md:grid-cols-3 gap-3 container py-24">
         {projects.map((item, index) => (
           <Card key={index} className="group hover:scale-105 transition-all">
             <CardHeader>
