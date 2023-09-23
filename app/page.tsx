@@ -32,7 +32,7 @@ export default function Home() {
           <Separator />
           <div className="pt-12 text-xs md:text-normal mb-5 lg:hidden opacity-60 ">
             {/* <p className="m-6 ">Dive in:</p> */}
-            <MenuElements className="p-5" />
+            <MenuElements className="md:p-5" />
           </div>
           {/* <div className="lg:hidden opacity-60">
             <ModeToggle />

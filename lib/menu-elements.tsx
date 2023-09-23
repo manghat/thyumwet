@@ -18,9 +18,9 @@ export default function MenuElements({
   const pathname = usePathname();
 
   const navigation = [
-    { name: "Photo Series", href: "/photo-series" },
+    { name: "Photo-Series", href: "/photo-series" },
     { name: "Photography", href: "/photography" },
-    { name: "Projects", href: "#" },
+    { name: "Projects", href: "/projects" },
     { name: "About", href: "/about" },
   ];
   return (
@@ -40,7 +40,7 @@ export default function MenuElements({
             // key={item.name}
             className={` ${
               pathname === item.href ? "underline font-bold" : ""
-            } leading-8 px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline ${className}`}
+            } leading-8 px-2 md:px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline break-keep ${className}`}
           >
             {pathname === item.href && (
               <motion.span
