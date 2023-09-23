@@ -5,6 +5,7 @@ import type { ReactNode, FC } from "react";
 import Menu from "@/components/ui/menu";
 import { Particles } from "@/components/particles";
 import { Providers } from "@/lib/providers";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children, modal }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <GoogleAnalytics />
         <Providers>
           <Menu />
           <Particles className="absolute inset-0 -z-10" />
