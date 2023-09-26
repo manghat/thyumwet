@@ -25,7 +25,6 @@ const RootLayout: FC<RootLayoutProps> = ({ children, modal }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <GoogleAnalytics />
         <Providers>
           <Menu />
           <Particles className="absolute inset-0 -z-10" />
@@ -34,6 +33,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children, modal }) => {
             by Ashwin Manghat
           </h2>
         </Providers>
+        <GoogleAnalytics />
       </body>
       {modal}
     </html>
