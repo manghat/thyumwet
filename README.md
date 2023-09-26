@@ -1,10 +1,12 @@
-The basic framework of the portfolio is setup
+# The basic framework of the portfolio is setup
 
-# things to check out later
+## things to check out later
 
 [ ] contentful using graphql instead of the traditional approach
 [ ] Framer motion and other animation styles
-[ ] add projects
+[x] add projects
+[ ] Loading states for the modal with image - refernece [this video](https://twitter.com/asidorenko_/status/1688633177403789314)
+[ ] fancier modal with gallery?
 
 ## OG card generation
 

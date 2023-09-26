@@ -83,7 +83,7 @@ const Page = (props: Props) => {
               target="_blank"
             >
               <div className="flex  p-6">
-                <CardTitle className="grow text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white ">
+                <CardTitle className="grow text-xl font-medium duration-1000 lg:text-3xl text-foreground group-hover:text-bold ">
                   {item.name}
                 </CardTitle>
                 {/* <ArrowTopRightIcon /> */}
@@ -93,7 +93,7 @@ const Page = (props: Props) => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="h-6 w-6 justify-self-end opacity-0 text-gray-500/50 group-hover:text-gray-500/100 group-hover:opacity-80 transition-all"
+                  className="h-6 w-6 justify-self-end opacity-0 text-foreground group-hover:text-bold group-hover:opacity-80 transition-all"
                 >
                   <path
                     strokeLinecap="round"
@@ -105,14 +105,18 @@ const Page = (props: Props) => {
                 {/* <CardDescription>Card Description</CardDescription> */}
               </div>
               <CardContent>
-                <div className="mt-4 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-200">
+                <div className="mt-4 text-sm  duration-1000">
                   {item.description}
                 </div>
               </CardContent>
               <CardFooter>
                 <CardDescription className="grow">
                   {item.builtWith.split(", ").map((item, index) => (
-                    <Badge key={index} variant="outline" className="mr-1 my-1">
+                    <Badge
+                      key={index}
+                      variant="secondary"
+                      className="mr-1 my-1"
+                    >
                       {item.trim()}
                     </Badge>
                   ))}
