@@ -41,9 +41,10 @@ async function Page({ params }: Props) {
               placeholder="blur"
               priority
             />
-            <div className="hidden md:block md:p-6 max-w-2xl min-w-lg">
-              <p className="text-sm md:text-xl text-white md:text-muted-foreground line-clamp-3">
-                {image.alt} <br /> {image.date}
+            <div className="md:block md:p-6 max-w-2xl min-w-lg py-4">
+              <p className="text-sm md:text-xl text-center text-foreground-muted md:text-muted-foreground line-clamp-3">
+                {image.alt} <br />
+                {image.date && <span className="text-xs">{image.date}</span>}
               </p>
             </div>
           </div>

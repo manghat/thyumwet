@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: Props }) {
       <div className=" relative z-50 inset-0 mx-auto flex max-w-7xl items-center justify-center">
         <div className="w-full flex flex-col relative z-50">
           {/* <div className="relative flex flex-col aspect-[3/2] h-screen w-full"> */}
-          <h2 className="mx-auto mb-5">{currentImage.alt}</h2>
+          <h2 className="mx-auto mb-5 text-white">{currentImage.alt}</h2>
           <div className="relative flex items-center justify-center">
             <Image
               src={currentImage?.src}
