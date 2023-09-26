@@ -10,7 +10,10 @@ import GoogleAnalytics from "./GoogleAnalytics";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Thy Umwelt",
+  title: {
+    template: "Thy Umwelt | %s ",
+    default: "Thy Umwelt",
+  },
   description: "A website by Ashwin Manghat",
 };
 

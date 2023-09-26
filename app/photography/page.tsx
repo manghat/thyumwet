@@ -9,7 +9,7 @@ import Image from "next/image";
 type Props = {};
 
 export const metadata: Metadata = {
-  title: "ThyUmvelt | Photography",
+  title: "Photography",
   description:
     "A moment in time and space, captured and rendered for its perceived beauty.",
 };

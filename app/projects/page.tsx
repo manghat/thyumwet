@@ -16,7 +16,7 @@ import { Metadata } from "next";
 type Props = {};
 
 export const metadata: Metadata = {
-  title: "ThyUmvelt | Project",
+  title: "Project",
   description: "The prohects I have been working on",
 };
 

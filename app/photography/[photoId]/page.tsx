@@ -1,6 +1,7 @@
 import { getAnAsset, getDataPhotographs } from "@/utils/contentful-fetches";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import {
   ArrowLongLeftIcon,
@@ -9,11 +10,23 @@ import {
 } from "@heroicons/react/24/outline";
 import { Suspense } from "react";
 
-type Props = { photoId: string; href: string };
+type Props = { params: { photoId: string } };
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { photoId } = params;
+  const data = await getAnAsset(photoId);
+
+  return {
+    title: `Photograph | ${data.alt}`,
+  };
+}
 
 // :TODO: need to use href to update the URL for the next and previous buttons
 
-const Page = async ({ params }: { params: Props }) => {
+async function Page({ params }: Props) {
   const { photoId } = params;
   const data = await getAnAsset(photoId);
   return (
@@ -89,7 +102,7 @@ const Page = async ({ params }: { params: Props }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Page;
 

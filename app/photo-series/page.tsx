@@ -10,7 +10,7 @@ import { Metadata } from "next";
 type Props = {};
 
 export const metadata: Metadata = {
-  title: "ThyUmvelt | Photo Series",
+  title: "Photo Series",
   description: "Photographs in meaningful grouping.",
 };
 

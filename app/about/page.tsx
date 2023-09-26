@@ -7,7 +7,7 @@ import AnimationWrapper from "@/components/ui/animation-wrapper";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ThyUmvelt | About",
+  title: "About",
   description: "About me and where to find me.",
 };
 

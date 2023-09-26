@@ -1,11 +1,25 @@
 import Modal from "@/components/ui/Modal/modal";
 import { getAnAsset } from "@/utils/contentful-fetches";
+import { Metadata, ResolvingMetadata } from "next";
 // import { ImageProps } from "@/utils/types";
 // import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
-type Props = { photoId: string };
-export default async function Page({ params }: { params: Props }) {
+type Props = { params: { photoId: string } };
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { photoId } = params;
+  const data = await getAnAsset(photoId);
+
+  return {
+    title: `Photograph | ${data.alt}`,
+  };
+}
+async function Page({ params }: Props) {
+  // export default async function Page({ params }: { params: Props }) {
   const { photoId } = params;
   const data = await getAnAsset(photoId);
 
@@ -38,6 +52,8 @@ export default async function Page({ params }: { params: Props }) {
     </Modal>
   );
 }
+
+export default Page;
 
 // :TODO: need to figure out how to manage the modal transitions from photo to photo. (maybe that is not needed - Not sure)
 // :TODO: The image feels like is not taking the full space possible => Might need to fix later

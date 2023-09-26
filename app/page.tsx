@@ -4,6 +4,13 @@ import ThemeToggle from "@/components/ui/my-theme-toggle";
 import { Separator } from "@/components/ui/separator";
 import MenuElements from "@/lib/menu-elements";
 import { motion } from "framer-motion";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "The world as it is experienced by a particular organism. A website by Ashwin Manghat",
+};
 
 export default function Home() {
   return (

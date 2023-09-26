@@ -1,13 +1,27 @@
 import { Header } from "@/components/ui/header-on-page";
 import { getASeries, getAnAsset } from "@/utils/contentful-fetches";
 import Image from "next/image";
+import { Metadata, ResolvingMetadata } from "next";
 
 type Props = { params: { seriesId: string } };
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { seriesId } = params;
+  const data = await getASeries(seriesId);
+
+  return {
+    title: `Photo Series | ${data.reducedResults.seriesTitle}`,
+    description: data.reducedResults.description,
+  };
+}
 
 async function Page({ params }: Props) {
   const { seriesId } = params;
   const data = await getASeries(seriesId);
-  let x = await JSON.stringify(data.images);
+  // let x = await JSON.stringify(data.images);
   return (
     <>
       <Header
