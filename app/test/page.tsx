@@ -1,28 +1,39 @@
-import { getAnAsset } from "@/utils/contentful-fetches";
+import { Header } from "@/components/ui/header-on-page";
+import { getPhotoSeries } from "@/utils/contentful-fetches";
 import Image from "next/image";
+import { Separator } from "@components/ui/separator";
+import Link from "next/link";
+import { ImageSeriesProps } from "@/utils/types";
+import AnimationWrapper from "@/components/ui/animation-wrapper";
+import { Metadata } from "next";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import MySwiper from "@/components/my-swiper";
+
 type Props = {};
 
+export const metadata: Metadata = {
+  title: "Photo Series",
+  description: "Photographs in meaningful grouping.",
+};
+
 const Page = async (props: Props) => {
-  const data = await getAnAsset("1DRfrRxwvf3JuTNfXujF6m");
-  const json = await JSON.stringify(data);
+  const data = await getPhotoSeries();
+  // console.log(await data);
 
   return (
-    <div className="relative z-50 inset-0 mx-auto flex max-w-7xl items-center justify-center">
-      <div className="w-full flex flex-col relative z-50">
-        <Image
-          src={data.src}
-          width={data.width}
-          height={data.height}
-          quality={100}
-          className="max-h-[85vh] aspect-auto w-auto"
-          sizes="100vh"
-          blurDataURL={data.blurDataURL}
-          placeholder="blur"
-          priority
-          alt={data.alt}
-        />
+    <AnimationWrapper>
+      <Header
+        title="Photo Series"
+        subtitle="Photographs in meaningful grouping."
+        subtitle2="A message conveyed, a feeling captured through a series of images."
+      />
+      <div className="p-12 lg m-24">
+        <MySwiper data={data} />
       </div>
-    </div>
+    </AnimationWrapper>
   );
 };
 
