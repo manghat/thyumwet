@@ -4,6 +4,14 @@ import Script from "next/script"
 import * as gtag from "../gtag.js"
 
 const GoogleAnalytics = () => {
+    // var host = window.location.hostname;
+    // if(host == "localhost")
+    // return null;
+    const env = process.env.NODE_ENV
+if(env == "development"){
+    return null;
+}
+
 
     //You can show in the console the GA_TRACKING_ID to confirm
     console.log(gtag.GA_TRACKING_ID)

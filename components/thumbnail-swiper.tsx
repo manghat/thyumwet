@@ -13,7 +13,7 @@ import "swiper/css/thumbs";
 import { ImageProps } from "@/utils/types";
 
 export default function ThumnailSlider({ images }: { images: ImageProps[] }) {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any | null>(null);
 
   return (
     <section className="min-h-screen bg-black py-12">

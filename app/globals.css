@@ -74,6 +74,20 @@
   body {
     @apply bg-background text-foreground;
   }
+  .mySwiper-thumb .swiper{
+    @apply p-2.5;
+  }
+  .mySwiper-thumb .swiper-slide {
+    @apply opacity-60;
+  }
+  .mySwiper-thumb .swiper-slide:hover {
+    @apply opacity-100;
+  }
+  /* .mySwiper-thumb .my-active-thumb-class,  */
+  /* .mySwiper-thumb .swiper-slide-active,  */
+  .mySwiper-thumb .swiper-slide-thumb-active {
+    @apply opacity-100 border border-zinc-300 rounded-lg brightness-110 contrast-100 transition-all duration-300 ;
+  }
 }
 
 

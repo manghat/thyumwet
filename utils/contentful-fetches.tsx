@@ -2,9 +2,11 @@ import getBase64ImageUrl from "@/lib/generate-blur-placeholder";
 import { client } from "./contentful-client";
 import GetImageDetils from "./get-image-details";
 import { ImageProps, ImageSeriesProps } from "./types";
+import { cache } from "react";
 
-export async function getDataPhotographs() {
-  // "use server";
+export const revalidate = 3600;
+
+export const getDataPhotographs = cache(async () => {
   const results = await client.getEntries({
     content_type: "photograph",
     order: "-sys.updatedAt",
@@ -17,7 +19,23 @@ export async function getDataPhotographs() {
     throw new Error("Failed to fetch data");
   }
   return ReduceImages(results);
-}
+});
+
+// export async function getDataPhotographs() {
+//   // "use server";
+//   const results = await client.getEntries({
+//     content_type: "photograph",
+//     order: "-sys.updatedAt",
+//   });
+//   if (!results.items) {
+//     throw new Error("Failed to fetch data");
+//   }
+//   if (!results.items) {
+//     console.log(results);
+//     throw new Error("Failed to fetch data");
+//   }
+//   return ReduceImages(results);
+// }
 
 function ReduceImages(results: any) {
   let reducedResults: ImageProps[] = [];
