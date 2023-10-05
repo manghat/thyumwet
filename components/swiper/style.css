@@ -1,0 +1,15 @@
+    .mySwiper-thumb{
+        @apply p-2
+    }
+    .mySwiper-thumb .swiper-slide:hover {
+        @apply opacity-100;
+    }
+    .mySwiper-thumb .swiper-slide {
+        @apply opacity-70 transition-all duration-100 ease-in-out;
+        :hover {
+            @apply opacity-100;
+        }
+    }
+    .mySwiper-thumb .swiper-slide-thumb-active {
+        @apply opacity-100 scale-110 ring-2 ring-primary rounded-lg;
+    }
