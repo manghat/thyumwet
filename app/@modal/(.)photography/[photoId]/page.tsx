@@ -29,12 +29,12 @@ async function Page({ params }: Props) {
   // const currentImage = data;
   return (
     <Modal>
-      <ModalSwiper images={dataAll.props.images} idc={idc} />
+      <ModalSwiper images={dataAll.props.images} idc={idc} show={true} />
     </Modal>
   );
   return (
     <Modal>
-      <ModalSwiper images={dataAll.props.images} idc={idc} />
+      <ModalSwiper images={dataAll.props.images} idc={idc} show={true} />
       {/* <div className="relative z-50 flex aspect-auto w-full max-w-7xl items-center wide:h-full xl:taller-than-854:h-auto"> */}
       {/* <div className=" relative z-50 inset-0 mx-auto flex max-w-7xl items-center justify-center">
         <div className="w-full flex flex-col relative z-50">

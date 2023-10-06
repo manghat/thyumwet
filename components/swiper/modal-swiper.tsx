@@ -19,9 +19,10 @@ import { Button } from "../ui/button";
 type Props = {
   images: ImageProps[];
   idc: string;
+  show: boolean;
 };
 
-function ModalSwiper({ images, idc }: Props) {
+function ModalSwiper({ images, idc, show }: Props) {
   var index = images
     .map(function (e) {
       return e.idc;
@@ -36,10 +37,10 @@ function ModalSwiper({ images, idc }: Props) {
   };
 
   const [thumbsSwiper, setThumbsSwiper] = useState<any | null>(null);
-  const [showNavigation, setShowNavigation] = useState(false);
+  const [showNavigation, setShowNavigation] = useState(show);
 
   return (
-    <div className="relative max-h-screen py-12 z-20">
+    <div className="relative max-h-screen py-12 z-50">
       <div className="container">
         {/* Main slides */}
         <Swiper

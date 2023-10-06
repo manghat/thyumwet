@@ -35,7 +35,7 @@ async function Page({ params }: Props) {
   var idc = params.photoId;
   return (
     <div>
-      <ModalSwiper images={data.props.images} idc={idc} />
+      <ModalSwiper images={data.props.images} idc={idc} show={false} />
     </div>
   );
 }
