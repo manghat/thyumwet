@@ -39,7 +39,7 @@ function ModalSwiper({ images, idc }: Props) {
   const [showNavigation, setShowNavigation] = useState(false);
 
   return (
-    <div className="relative min-h-screen py-12">
+    <div className="relative max-h-screen py-12 z-20">
       <div className="container">
         {/* Main slides */}
         <Swiper
@@ -49,9 +49,10 @@ function ModalSwiper({ images, idc }: Props) {
             "--swiper-navigation-size": "24px",
           }}
           onSlideChange={(swiper) => {
-            const currentSlideElement = swiper.slides[swiper.activeIndex];
-            const currentSlideId = currentSlideElement.getAttribute("data-id");
-            changeRoute(Number(currentSlideId));
+            console.log(swiper.activeIndex);
+            // const currentSlideElement = swiper.slides[swiper.activeIndex];
+            // const currentSlideId = currentSlideElement.getAttribute("data-id");
+            changeRoute(Number(swiper.activeIndex));
           }}
           loop={true}
           spaceBetween={10}
@@ -80,7 +81,7 @@ function ModalSwiper({ images, idc }: Props) {
                       width={image.width}
                       height={image.height}
                       quality={100}
-                      className={`max-h-[85vh] aspect-auto w-auto`}
+                      className={`max-h-[80vh] aspect-auto w-auto`}
                       sizes="100vh"
                       blurDataURL={image?.blurDataURL}
                       placeholder="blur"
@@ -94,6 +95,7 @@ function ModalSwiper({ images, idc }: Props) {
             </SwiperSlide>
           ))}
         </Swiper>
+
         <div className="my-10 text-center">
           <Button
             onClick={() => setShowNavigation((open) => !open)}
