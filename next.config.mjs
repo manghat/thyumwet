@@ -5,6 +5,8 @@ import withPlaiceholder from "@plaiceholder/next";
  */
 
 const nextConfig = {
+  output: 'standalone',
+
   images: {
     domains: ['images.ctfassets.net'],
     loader: 'custom',
