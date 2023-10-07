@@ -30,6 +30,18 @@ export async function generateMetadata(
   };
 }
 
+// export const revalidate = 60 * 60 * 24; // 1 day
+
+// export async function generateStaticParams() {
+//   var dataAll = await getDataPhotographs();
+//   var idc_ = dataAll.props.images.map(function (e: { idc: any }) {
+//     return e.idc;
+//   });
+//   return idc_.map((photoId: string) => ({
+//     photoId,
+//   }));
+// }
+
 async function Page({ params }: Props) {
   var data = await getDataPhotographs();
   var idc = params.photoId;

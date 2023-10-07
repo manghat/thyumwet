@@ -1,6 +1,7 @@
 import ModalSwiper from "@/components/swiper/modal-swiper";
 import Modal from "@/components/ui/Modal/modal";
 import { getAnAsset, getDataPhotographs } from "@/utils/contentful-fetches";
+import { ImageProps } from "@/utils/types";
 import { Metadata, ResolvingMetadata } from "next";
 // import { ImageProps } from "@/utils/types";
 // import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -19,6 +20,26 @@ export async function generateMetadata(
     title: `Photograph | ${data.alt}`,
   };
 }
+
+// export async function generateStaticParams() {
+//   var dataAll = await getDataPhotographs();
+//   var idc_ = dataAll.props.images.map(function (e: { idc: any }) {
+//     return e.idc;
+//   });
+//   return idc_.map((photoId: string) => ({
+//     photoId,
+//   }));
+// }
+
+export async function getStaticPaths() {
+  const dataAll = await getDataPhotographs();
+  const paths = dataAll.props.images.map((image: ImageProps) => ({
+    params: { photoId: image.idc.toString() },
+  }));
+
+  return { paths, fallback: false };
+}
+
 async function Page({ params }: Props) {
   // export default async function Page({ params }: { params: Props }) {
   // const { photoId } = params;
@@ -29,7 +50,7 @@ async function Page({ params }: Props) {
   // const currentImage = data;
   return (
     <Modal>
-      <ModalSwiper images={dataAll.props.images} idc={idc} show={true} />
+      <ModalSwiper images={dataAll.props.images} idc={idc} show={false} />
     </Modal>
   );
   return (
