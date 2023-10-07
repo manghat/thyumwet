@@ -41,6 +41,14 @@ export async function generateMetadata(
 //     photoId,
 //   }));
 // }
+export async function getStaticPaths() {
+  const dataAll = await getDataPhotographs();
+  const paths = dataAll.props.images.map((image: ImageProps) => ({
+    params: { photoId: image.idc.toString() },
+  }));
+
+  return { paths, fallback: false };
+}
 
 async function Page({ params }: Props) {
   var data = await getDataPhotographs();
