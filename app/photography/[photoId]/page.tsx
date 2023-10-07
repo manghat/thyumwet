@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Suspense } from "react";
 import ModalSwiper from "@/components/swiper/modal-swiper";
+import { ImageProps } from "@/utils/types";
 
 type Props = { params: { photoId: string } };
 
@@ -41,14 +42,14 @@ export async function generateMetadata(
 //     photoId,
 //   }));
 // }
-export async function getStaticPaths() {
-  const dataAll = await getDataPhotographs();
-  const paths = dataAll.props.images.map((image: ImageProps) => ({
-    params: { photoId: image.idc.toString() },
-  }));
+// export async function getStaticPaths() {
+//   const dataAll = await getDataPhotographs();
+//   const paths = dataAll.props.images.map((image: ImageProps) => ({
+//     params: { photoId: image.idc.toString() },
+//   }));
 
-  return { paths, fallback: false };
-}
+//   return { paths, fallback: false };
+// }
 
 async function Page({ params }: Props) {
   var data = await getDataPhotographs();
