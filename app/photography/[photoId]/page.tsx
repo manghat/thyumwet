@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import ModalSwiper from "@/components/swiper/modal-swiper";
 import { ImageProps } from "@/utils/types";
+import AnimationWrapper from "@/components/ui/animation-wrapper";
 
 type Props = { params: { photoId: string } };
 
@@ -43,9 +44,11 @@ async function Page({ params }: Props) {
   var data = await getDataPhotographs();
   var idc = params.photoId;
   return (
-    <div>
-      <ModalSwiper images={data.props.images} idc={idc} show={false} />
-    </div>
+    <AnimationWrapper>
+      <div>
+        <ModalSwiper images={data.props.images} idc={idc} show={false} />
+      </div>
+    </AnimationWrapper>
   );
 }
 export default Page;
