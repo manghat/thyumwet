@@ -26,6 +26,14 @@ export async function generateMetadata(
   };
 }
 
+export async function getStaticParams() {
+  const data_ = await getPhotoSeries();
+  const data = data_.props.images;
+  return {
+    seriesId: data.map((image: any) => image.slug),
+  };
+}
+
 async function Page({ params }: Props) {
   const { seriesId } = params;
   const data_ = await getPhotoSeries();
