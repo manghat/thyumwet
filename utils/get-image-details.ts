@@ -1,3 +1,4 @@
+// unused file
 import getBase64ImageUrl from "../lib/generate-blur-placeholder";
 import { ImageProps } from "./types";
 
