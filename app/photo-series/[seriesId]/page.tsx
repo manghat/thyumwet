@@ -32,6 +32,7 @@ export async function generateStaticParams() {
   const data = data_.props.images;
   return data.map((image: any) => ({
     seriesId: image.slug.toString(),
+    revalidate: 86400,
   }));
 }
 

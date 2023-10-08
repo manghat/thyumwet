@@ -21,15 +21,14 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams() {
-//   var dataAll = await getDataPhotographs();
-//   var idc_ = dataAll.props.images.map(function (e: { idc: any }) {
-//     return e.idc;
-//   });
-//   return idc_.map((photoId: string) => ({
-//     photoId,
-//   }));
-// }
+export async function generateStaticParams() {
+  const dataAll = await getDataPhotographs();
+  const data = dataAll.props.images;
+  return data.map((image: any) => ({
+    photoId: image.idc.toString(),
+    revalidate: 86400,
+  }));
+}
 
 async function Page({ params }: Props) {
   // export default async function Page({ params }: { params: Props }) {

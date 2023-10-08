@@ -41,13 +41,22 @@ export async function generateMetadata(
 //     photoId,
 //   }));
 // }
-// export async function getStaticPaths() {
-//   const dataAll = await getDataPhotographs();
-//   const paths = dataAll.props.images.map((image: ImageProps) => ({
-//     params: { photoId: image.idc.toString() },
-//   }));
+export async function generateStaticParams() {
+  const dataAll = await getDataPhotographs();
+  const data = dataAll.props.images;
+  return data.map((image: any) => ({
+    photoId: image.idc.toString(),
+    revalidate: 86400,
+  }));
+}
 
-//   return { paths, fallback: false };
+// export async function generateStaticParams() {
+//   const data_ = await getPhotoSeries();
+//   const data = data_.props.images;
+//   return data.map((image: any) => ({
+//     seriesId: image.slug.toString(),
+//     revalidate: 86400,
+//   }));
 // }
 
 async function Page({ params }: Props) {
