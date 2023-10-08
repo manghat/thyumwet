@@ -30,17 +30,6 @@ export async function generateMetadata(
   };
 }
 
-// export const revalidate = 60 * 60 * 24; // 1 day
-
-// export async function generateStaticParams() {
-//   var dataAll = await getDataPhotographs();
-//   var idc_ = dataAll.props.images.map(function (e: { idc: any }) {
-//     return e.idc;
-//   });
-//   return idc_.map((photoId: string) => ({
-//     photoId,
-//   }));
-// }
 export async function generateStaticParams() {
   const dataAll = await getDataPhotographs();
   const data = dataAll.props.images;
@@ -49,15 +38,6 @@ export async function generateStaticParams() {
     revalidate: 86400,
   }));
 }
-
-// export async function generateStaticParams() {
-//   const data_ = await getPhotoSeries();
-//   const data = data_.props.images;
-//   return data.map((image: any) => ({
-//     seriesId: image.slug.toString(),
-//     revalidate: 86400,
-//   }));
-// }
 
 async function Page({ params }: Props) {
   var data = await getDataPhotographs();
@@ -71,4 +51,3 @@ async function Page({ params }: Props) {
 export default Page;
 
 // :TODO: need to add a 404 page for when the photoId is not found
-// :TODO: need to check if I can navigate to the next photoId and previous photoId using the URL

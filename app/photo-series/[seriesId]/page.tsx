@@ -7,6 +7,7 @@ import {
 import Image from "next/image";
 import { Metadata, ResolvingMetadata } from "next";
 import { ImageSeriesProps } from "@/utils/types";
+import AnimationWrapper from "@/components/ui/animation-wrapper";
 
 type Props = { params: { seriesId: string } };
 
@@ -52,7 +53,7 @@ async function Page({ params }: Props) {
 
   // let x = await JSON.stringify(data.images);
   return (
-    <>
+    <AnimationWrapper>
       <Header title={data.seriesTitle} subtitle={data.description} />
       <section className="py-24 md:mx-1 justify-self-center ">
         {data.images.map((image: any, index: number) => (
@@ -93,7 +94,7 @@ async function Page({ params }: Props) {
       {/* <div className="container flex flex-col my-10">
         <div className="flex justify-center">{x}</div>
       </div> */}
-    </>
+    </AnimationWrapper>
   );
 }
 

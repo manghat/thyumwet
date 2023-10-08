@@ -35,7 +35,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children, modal }) => {
         </Providers>
         <GoogleAnalytics />
       </body>
-      {modal}
+      {/* {modal} */}
     </html>
   );
 };
