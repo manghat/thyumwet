@@ -6,6 +6,7 @@ import {
 } from "@/utils/contentful-fetches";
 import Image from "next/image";
 import { Metadata, ResolvingMetadata } from "next";
+import { ImageSeriesProps } from "@/utils/types";
 
 type Props = { params: { seriesId: string } };
 
@@ -29,10 +30,14 @@ export async function generateMetadata(
 export async function generateStaticParams() {
   const data_ = await getPhotoSeries();
   const data = data_.props.images;
-  return {
-    seriesId: data.map((image: any) => image.slug),
-  };
+  return data.map((image: any) => ({
+    seriesId: image.slug.toString(),
+  }));
 }
+
+// return users .map(user => ({
+//   userId: user.id.toString()
+//   })D
 
 async function Page({ params }: Props) {
   const { seriesId } = params;
