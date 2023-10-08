@@ -26,7 +26,7 @@ export async function generateMetadata(
   };
 }
 
-export async function getStaticParams() {
+export async function generateStaticParams() {
   const data_ = await getPhotoSeries();
   const data = data_.props.images;
   return {
