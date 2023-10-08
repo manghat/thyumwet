@@ -3,6 +3,33 @@ import { client } from "./contentful-client";
 import GetImageDetils from "./get-image-details";
 import { ImageProps, ImageSeriesProps } from "./types";
 
+async function ReduceImages(results: any) {
+  let reducedResults: ImageProps[] = [];
+  let i = 0;
+  for (let result of results.items) {
+    reducedResults.push({
+      id: i,
+      idc: result.sys.id,
+      height: result.fields.photo[0].fields.file.details.image.height,
+      src: result.fields.photo[0].fields.file.url,
+      width: result.fields.photo[0].fields.file.details.image.width,
+      placeholder: result.fields.photoTitle,
+      alt: result.fields.photoTitle,
+      date: result.fields.date,
+      blurDataURL: await getBase64ImageUrl(
+        result.fields.photo[0].fields.file.url
+      ),
+    });
+    i++;
+  }
+  return {
+    props: {
+      images: reducedResults,
+    },
+  };
+  return GetImageDetils(reducedResults);
+}
+
 export async function getDataPhotographs() {
   // "use server";
   const results = await client.getEntries({
@@ -17,26 +44,6 @@ export async function getDataPhotographs() {
     throw new Error("Failed to fetch data");
   }
   return ReduceImages(results);
-}
-
-function ReduceImages(results: any) {
-  let reducedResults: ImageProps[] = [];
-  let i = 0;
-  for (let result of results.items) {
-    reducedResults.push({
-      id: i,
-      idc: result.sys.id,
-      height: result.fields.photo[0].fields.file.details.image.height,
-      src: result.fields.photo[0].fields.file.url,
-      width: result.fields.photo[0].fields.file.details.image.width,
-      placeholder: result.fields.photoTitle,
-      alt: result.fields.photoTitle,
-      date: result.fields.date,
-      blurDataURL: undefined,
-    });
-    i++;
-  }
-  return GetImageDetils(reducedResults);
 }
 
 export async function getAPhoto(id: string) {
@@ -97,6 +104,8 @@ var slug = function (str: string) {
 
   return str;
 };
+
+// :TODO: have not tested slug functionality for slugs that are not defined.
 
 export async function getPhotoSeries() {
   const results = await client.getEntries({

@@ -31,3 +31,6 @@ async function fetchGraphQL(query : string) {
     const response = await fetchGraphQL(query);
     console.log(JSON.stringify(response, null, 2));
   })();
+
+
+  // source : https://vercel.com/docs/integrations/contentful#adding-content-in-contentful
