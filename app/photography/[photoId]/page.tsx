@@ -8,7 +8,6 @@ import {
   ArrowLongRightIcon,
   PhotoIcon,
 } from "@heroicons/react/24/outline";
-import { Suspense } from "react";
 import ModalSwiper from "@/components/swiper/modal-swiper";
 import { ImageProps } from "@/utils/types";
 
