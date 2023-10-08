@@ -1,5 +1,9 @@
 import { Header } from "@/components/ui/header-on-page";
-import { getASeries, getAnAsset } from "@/utils/contentful-fetches";
+import {
+  getASeries,
+  getAnAsset,
+  getPhotoSeries,
+} from "@/utils/contentful-fetches";
 import Image from "next/image";
 import { Metadata, ResolvingMetadata } from "next";
 
@@ -10,26 +14,34 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const { seriesId } = params;
-  const data = await getASeries(seriesId);
+  const data_ = await getPhotoSeries();
+  const data = data_.props.images.filter(
+    (image: any) => image.slug === seriesId
+  )[0];
+  // const data = await getASeries(seriesId);
 
   return {
-    title: `Photo Series | ${data.reducedResults.seriesTitle}`,
-    description: data.reducedResults.description,
+    title: `Photo Series | ${data.seriesTitle}`,
+    description: data.description,
   };
 }
 
 async function Page({ params }: Props) {
   const { seriesId } = params;
-  const data = await getASeries(seriesId);
+  const data_ = await getPhotoSeries();
+
+  //handle pretty urls, the stulg is fetched and the data is filtered from the same query
+  const data = data_.props.images.filter(
+    (image: any) => image.slug === seriesId
+  )[0];
+  // console.log(data);
+
   // let x = await JSON.stringify(data.images);
   return (
     <>
-      <Header
-        title={data.reducedResults.seriesTitle}
-        subtitle={data.reducedResults.description}
-      />
+      <Header title={data.seriesTitle} subtitle={data.description} />
       <section className="py-24 md:mx-1 justify-self-center ">
-        {data.images.props.images.map((image: any, index: number) => (
+        {data.images.map((image: any, index: number) => (
           <div
             className={`flex flex-col items-center justify-between md:px-24 pt-24 py-1 text-2xl tracking-tight transition-colors text-muted-foreground ${
               // index % 2 ? "md:flex-row-reverse" : ""

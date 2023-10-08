@@ -32,7 +32,7 @@ const Page = async (props: Props) => {
             <div key={image.id} className="py-10 my-10">
               <Link
                 // href={`/photo-series/?photoId=${image.idc}`}
-                href={`/photo-series/${image.idc}`}
+                href={`/photo-series/${image.slug}`}
                 className={`grid relative md:static place-content-center md:flex items-center group transition duration-200 rounded-sm ${
                   index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"
                 }`}

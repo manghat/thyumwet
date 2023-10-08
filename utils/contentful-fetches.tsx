@@ -77,6 +77,27 @@ export async function getAnAsset(entity_id: string) {
   return reducedResults;
 }
 
+//creates a slug from the title
+
+var slug = function (str: string) {
+  str = str.replace(/^\s+|\s+$/g, ""); // trim
+  str = str.toLowerCase();
+
+  // remove accents, swap ñ for n, etc
+  var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
+  var to = "aaaaaeeeeeiiiiooooouuuunc------";
+  for (var i = 0, l = from.length; i < l; i++) {
+    str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
+  }
+
+  str = str
+    .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
+    .replace(/\s+/g, "-") // collapse whitespace and replace by -
+    .replace(/-+/g, "-"); // collapse dashes
+
+  return str;
+};
+
 export async function getPhotoSeries() {
   const results = await client.getEntries({
     content_type: "photographySeries",
@@ -88,9 +109,14 @@ export async function getPhotoSeries() {
   let reducedResults: ImageSeriesProps[] = [];
   let i = 0;
   for (let result of results.items) {
+    let photos = result.fields.photos;
+    let images = await ReduceImages({ items: photos });
     reducedResults.push({
       id: i,
       idc: result.sys.id,
+      slug: result.fields.slug
+        ? slug(result.fields.slug)
+        : slug(result.fields.seriesTitle),
       src: result.fields.coverImage.fields.file.url,
       placeholder: result.fields.seriesTitle,
       description: result.fields.description,
@@ -98,6 +124,7 @@ export async function getPhotoSeries() {
       blurDataURL: undefined,
       alt: "",
       date: "",
+      images: images.props.images,
     });
     i++;
   }
@@ -105,6 +132,7 @@ export async function getPhotoSeries() {
   return GetImageDetils(reducedResults);
 }
 
+// :TODO: this is not used anywhere maybe delete it later
 export async function getASeries(id: string) {
   const result = await client.getEntry(id);
   // console.log(result);
@@ -114,8 +142,13 @@ export async function getASeries(id: string) {
   let photos = result.fields.photos;
   // console.log(photos);
 
+  let slug_ = result.fields.slug
+    ? slug(result.fields.slug)
+    : slug(result.fields.seriesTitle);
+
   let reducedResults: ImageSeriesProps = {
     idc: result.sys.id,
+    slug: slug_,
     seriesTitle: result.fields.seriesTitle,
     description: result.fields.description,
     id: 0,

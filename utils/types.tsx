@@ -32,4 +32,6 @@ export interface ImageSeriesProps {
   date: string;
   seriesTitle: string;
   description: string;
+  slug: string;
+  images?: ImageProps[];
 }
